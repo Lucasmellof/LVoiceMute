@@ -2,6 +2,7 @@ package wtf.lucasmellof.voicemute.commands
 
 import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder
+import net.gliby.voicechat.VoiceChat
 import org.bukkit.Bukkit
 import org.bukkit.Color
 import org.bukkit.command.CommandSender
@@ -37,6 +38,7 @@ class VoiceMuteCommand(plugin: LVoiceMute) : CommandBase(plugin, "voicemute", "l
                 "\n **Servidor:** " + getPlugin().configCache.serverName + "\n**Autor:** ${sender.name}\n**Razão:** ${mute.reason}"
             )
         getPlugin().webhook.sendWebhook(embed)
+        VoiceChat.getServerInstance().getServerNetwork().dataManager.mutedPlayers.add(target.uniqueId)
         target.sendTitle("§aVocê foi mutado por voz", "§3Um membro da equipe te mutou", 10, 40, 10)
     }
 }

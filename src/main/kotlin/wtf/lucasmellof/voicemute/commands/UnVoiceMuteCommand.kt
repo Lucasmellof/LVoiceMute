@@ -2,6 +2,7 @@ package wtf.lucasmellof.voicemute.commands
 
 import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder
+import net.gliby.voicechat.VoiceChat
 import org.bukkit.Bukkit
 import org.bukkit.Color
 import org.bukkit.command.CommandSender
@@ -30,6 +31,9 @@ class UnVoiceMuteCommand(plugin: LVoiceMute) : CommandBase(plugin, "unvoicemute"
             .setThumbnailUrl("https://crafatar.com/avatars/${target.uniqueId}?size=128&overlay")
             .setDescription("**Servidor:** " + getPlugin().configCache.serverName + "\n**Autor:** ${sender.name}")
         getPlugin().webhook.sendWebhook(embed)
+        if (VoiceChat.getServerInstance().getServerNetwork().dataManager.mutedPlayers.contains(target.uniqueId)) {
+            VoiceChat.getServerInstance().getServerNetwork().dataManager.mutedPlayers.remove(target.uniqueId)
+        }
         target.sendTitle("§aVocê foi desmutado", "§3Um membro da equipe te desmutou", 10, 40, 10)
     }
 }
