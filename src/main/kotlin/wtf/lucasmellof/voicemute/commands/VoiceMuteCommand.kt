@@ -1,7 +1,9 @@
 package wtf.lucasmellof.voicemute.commands
 
+import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder
 import org.bukkit.Bukkit
+import org.bukkit.Color
 import org.bukkit.command.CommandSender
 import wtf.lucasmellof.voicemute.LVoiceMute
 import wtf.lucasmellof.voicemute.exception.PluginException
@@ -28,9 +30,13 @@ class VoiceMuteCommand(plugin: LVoiceMute) : CommandBase(plugin, "voicemute", "l
         mute.save()
         sender.sendMessage("§a ! §f${mute.muted.player.name} foi mutado por voz")
         val embed = WebhookEmbedBuilder()
+            .setColor(Color.RED.asRGB())
+            .setTitle(WebhookEmbed.EmbedTitle("**${mute.muted.player.name}** foi mutado por voz!",null))
+            .setThumbnailUrl("https://crafatar.com/avatars/${target.uniqueId}?size=128&overlay")
             .setDescription(
-                "**${mute.muted.player.name}** foi temporariamente mutado por voz!\n **Servidor:** " + getPlugin().configCache.serverName + "\n**Autor:** ${sender.name}\n\n**Razão:** ${mute.reason}"
+                "\n **Servidor:** " + getPlugin().configCache.serverName + "\n**Autor:** ${sender.name}\n**Razão:** ${mute.reason}"
             )
         getPlugin().webhook.sendWebhook(embed)
+        target.sendTitle("§aVocê foi mutado por voz", "§3Um membro da equipe te mutou", 10, 40, 10)
     }
 }
