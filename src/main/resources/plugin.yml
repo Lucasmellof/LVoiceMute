@@ -1,0 +1,14 @@
+name: LVoiceMute
+version: 0.1a
+main: wtf.lucasmellof.voicemute.LVoiceMute
+author: Lucasmellof(Carmello)
+website: https://lucasmellof.wtf
+commands:
+  checkvoicemute:
+    permission: lvoicemute.checkmute
+  tempvoicemute:
+    permission: lvoicemute.tempmute
+  unvoicemute:
+    permission: lvoicemute.unmute
+  voicemute:
+    permission: lvoicemute.mute
