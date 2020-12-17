@@ -33,7 +33,7 @@ class VoiceMuteCommand(plugin: LVoiceMute) : CommandBase(plugin, "voicemute", "l
         val embed = WebhookEmbedBuilder()
             .setColor(Color.RED.asRGB())
             .setTitle(WebhookEmbed.EmbedTitle("**${mute.muted.player.name}** foi mutado por voz!",null))
-            .setThumbnailUrl("https://crafatar.com/avatars/${target.uniqueId}?size=128&overlay")
+            .setThumbnailUrl("https://minotar.net/avatar/${target.uniqueId}/128")
             .setDescription(
                 "\n **Servidor:** " + getPlugin().configCache.serverName + "\n**Autor:** ${sender.name}\n**Razão:** ${mute.reason}"
             )

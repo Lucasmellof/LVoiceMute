@@ -28,7 +28,7 @@ class UnVoiceMuteCommand(plugin: LVoiceMute) : CommandBase(plugin, "unvoicemute"
         val embed = WebhookEmbedBuilder()
             .setColor(Color.GREEN.asRGB())
             .setTitle(WebhookEmbed.EmbedTitle("**${mute.muted.player.name}** foi desmutado por voz!",null))
-            .setThumbnailUrl("https://crafatar.com/avatars/${target.uniqueId}?size=128&overlay")
+            .setThumbnailUrl("https://minotar.net/avatar/${target.uniqueId}/128")
             .setDescription("**Servidor:** " + getPlugin().configCache.serverName + "\n**Autor:** ${sender.name}")
         getPlugin().webhook.sendWebhook(embed)
         if (VoiceChat.getServerInstance().getServerNetwork().dataManager.mutedPlayers.contains(target.uniqueId)) {
