@@ -6,8 +6,8 @@ website: https://lucasmellof.wtf
 commands:
   checkvoicemute:
     permission: lvoicemute.checkmute
-  tempvoicemute:
-    permission: lvoicemute.tempmute
+  voicereload:
+    permission: lvoicemute.reload
   unvoicemute:
     permission: lvoicemute.unmute
   voicemute:
